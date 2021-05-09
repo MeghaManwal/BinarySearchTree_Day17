@@ -22,6 +22,8 @@ public class BinaryTree {
 		tree.inorder();	
 		
 		System.out.println("\nThe size of binary tree is : "+ tree.size());
+		
+		System.out.println("\nThe given Key exist in the binary tree : "+ tree.search(63));
 	}
 
 }
@@ -83,7 +85,26 @@ class BinarySearchTree {
 		 if(root == null)
 			 return 0;
 		 else
-			 return(sizeOf(root.left )+1+ sizeOf(root.right));
+			 return(sizeOf(root.left )+ 1 + sizeOf(root.right));
+	 }
+	 
+	 public boolean search(int key) {
+		 return searchfor(root, key);
+	 }
+
+	 public boolean searchfor(Node root, int key) {
+		 if(root == null)
+			 return false;
+		 if((int) root.key == key)
+			 return true;
+		 
+		 if(key > (int)root.key)
+			 return searchfor(root.right, key);
+		 
+		 else if(key <(int)root.key)
+		 return searchfor(root.left, key);
+		 
+		 return false;
 	 }
 	
 }
